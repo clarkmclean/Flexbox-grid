@@ -1,2 +1,144 @@
 # Flexbox-grid
 How to do grid boilerplate in flexbox, but you probably shouldn't.
+<style>
+    :root {
+        --background-gray: #ebebeb;
+    }
+    .layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1230px;
+    padding: 16px;
+    box-sizing: border-box;
+    }
+
+    .row {
+    display: flex;
+    width: 100%;
+    gap: 16px;
+    }
+
+    .mobileColumn {
+    flex-direction: column;
+    }
+
+    @media (min-width: 768px) {
+        .mobileColumn {
+            flex-direction: row;
+        }
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+    }
+
+    .containerDecoration {
+        background-color: var(--background-gray);
+        height: 50px;
+        justify-content: center;
+        text-overflow: clip;
+        container-type: inline-size;
+        font-size: 12px;
+    }
+    .containerDecoration:before {
+        content: attr(style);
+        color: #333;
+    }
+</style>
+<div class="layout">
+    <h2>Flexbox</h2>
+    <h4>Grid Layout <small>(<code>display: flex;</code> as row)</small></h4>
+    <div class="row">
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:1"></div>
+    </div>
+    <div class="row">
+      <div class="container containerDecoration" style="flex:2"></div>
+      <div class="container containerDecoration" style="flex:2"></div>
+      <div class="container containerDecoration" style="flex:2"></div>
+      <div class="container containerDecoration" style="flex:2"></div>
+      <div class="container containerDecoration" style="flex:2"></div>
+      <div class="container containerDecoration" style="flex:2"></div>
+    </div>
+    <div class="row">
+      <div class="container containerDecoration" style="flex:3"></div>
+      <div class="container containerDecoration" style="flex:3"></div>
+      <div class="container containerDecoration" style="flex:3"></div>
+      <div class="container containerDecoration" style="flex:3"></div>
+    </div>
+    <div class="row">
+      <div class="container containerDecoration" style="flex:4"></div>
+      <div class="container containerDecoration" style="flex:4"></div>
+      <div class="container containerDecoration" style="flex:4"></div>
+    </div>
+    <div class="row">
+      <div class="container containerDecoration" style="flex:6"></div>
+      <div class="container containerDecoration" style="flex:6"></div>
+    </div>
+    <div class="row">
+      <div class="container containerDecoration" style="flex:4"></div>
+      <div class="container containerDecoration" style="flex:8"></div>
+    </div>
+    <div class="row">
+      <div class="container containerDecoration" style="flex:2"></div>
+      <div class="container containerDecoration" style="flex:2"></div>
+      <div class="container containerDecoration" style="flex:2"></div>
+      <div class="container containerDecoration" style="flex:6"></div>
+    </div>
+    <h6>HTML</h6>
+    <pre>
+      <code>
+        {`
+          <div class="row">
+            <div class="container containerDecoration"></div>
+          </div>
+        `}
+      </code>
+    </pre>
+    <h6>CSS</h6>
+    <pre>
+      <code>
+          .Row {
+            display: flex;
+          }
+          .container {
+            width: 100%;
+            gap: 16px;
+          }
+        // sum of flex-grow in a row should be 12 for 12 column bootstrap like grid
+      </code>
+    </pre>
+    <h4>But Also.... <small>they don't have to add up to 12</small></h4>
+    <div class="row">
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:1"></div>
+    </div>
+    <div class="row">
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:2"></div>
+    </div>
+    <h4>Mobile <small>flex-direction: row to flex-direction: column</small></h4>
+    <div class="row mobileColumn">
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:3"></div>
+    </div>
+    <div class="row mobileColumn">
+      <div class="container containerDecoration" style="flex:1"></div>
+      <div class="container containerDecoration" style="flex:2"></div>
+    </div>
+    </div>
