@@ -1,5 +1,6 @@
-@use 'src/styles/variables' as vars;
-
+:root {
+    --background-gray: #ebebeb;
+}
 .layout {
   display: flex;
   flex-direction: column;
